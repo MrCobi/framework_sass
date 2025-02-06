@@ -2,3 +2,8 @@
 @use 'base/variables' as vars;
 
 
+body {
+    font-family: vars.$font-family-base;
+    font-size: vars.$font-size-base;
+    background-color: vars.$primary-color;
+}

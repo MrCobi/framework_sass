@@ -18,5 +18,10 @@ body {
 }
 
 /* Variables globales */
+body {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  background-color: #3498db;
+}
 
 /*# sourceMappingURL=style.css.map */
