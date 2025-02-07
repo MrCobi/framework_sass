@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
+
 <body>
-    <div class="container" style="border: 1px solid">
-        Contenedor Fijo
+    <div class="container-fluid debug-border" style="border: 1px solid; margin-top: 10px;">
+        <div class="row">
+            <div class="col-3">
+                <div class="item">.col-3</div>
+            </div>
+            <div class="col-7">
+                <div class="item"> .col-7</div>
+            </div>
+            <div class="col-2">
+                <div class="item"> .col-2</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="item"> .col</div>
+            </div>
+            <div class="col-auto">
+                <div class="item"> .col-auto</div>
+            </div>
+            <div class="col-6">
+                <div class="item"> .col-6</div>
+            </div>
+        </div>
     </div>
-
-    <div class="container-fluid" style="border: 1px solid; margin-top: 10px;">
-        Contenedor Fluido
-    </div>
-    <div class="container-sm" style="border: 1px solid; margin-top: 10px;">
-        Contenedor sm
-    </div>
-
-    <div class="container-md" style="border: 1px solid; margin-top: 10px;">
-        Contenedor md
-    </div>
-
-    <div class="container-lg" style="border: 1px solid; margin-top: 10px;">
-        Contenedor lg
-    </div>
-
-    <div class="container-xl" style="border: 1px solid; margin-top: 10px;">
-        Contenedor xl
-    </div>
+    <div class="fs-sm-1">Texto pequeño en pantallas pequeñas</div>
+    <div class="fs-md-2">Texto mediano en pantallas medianas</div>
+    <div class="fs-lg-3">Texto grande en pantallas grandes</div>
+    <div class="fs-xl-4">Texto extra grande en pantallas extra grandes</div>
 </body>
+
 </html>
