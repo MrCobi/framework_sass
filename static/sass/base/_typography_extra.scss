@@ -9,11 +9,13 @@ $font-sizes: (
   5: 2rem
 );
 
-@each $breakpoint, $size in vars.$breakpoints {
-  @media (min-width: $size) {
-    @each $number, $font-size in $font-sizes {
-      .fs-#{$breakpoint}-#{$number} {
-        font-size: $font-size;
+@if vars.$generate-responsive-classes {
+  @each $breakpoint, $size in vars.$breakpoints {
+    @media (min-width: $size) {
+      @each $num, $value in $font-sizes {
+        .fs-#{$breakpoint}-#{$num} {
+          font-size: $value;
+        }
       }
     }
   }

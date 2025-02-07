@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '../base/variables' as vars;
 
 $gutter-sizes: (
@@ -9,14 +10,30 @@ $gutter-sizes: (
   5: 128px
 );
 
-@each $breakpoint, $bp-size in vars.$breakpoints {
-  @media (min-width: $bp-size) {
-    @each $num, $size in $gutter-sizes {
-      .gx-#{$breakpoint}-#{$num} {
-        --gutter-x: #{$size};
+// Generar clases de gutter (gx y gy) condicionalmente
+@if vars.$generate-responsive-classes {
+  @each $breakpoint, $bp-size in vars.$breakpoints {
+    @media (min-width: $bp-size) {
+      @each $num, $size in $gutter-sizes {
+        .gx-#{$breakpoint}-#{$num} {
+          --gutter-x: #{$size};
+        }
+        .gy-#{$breakpoint}-#{$num} {
+          --gutter-y: #{$size};
+        }
       }
-      .gy-#{$breakpoint}-#{$num} {
-        --gutter-y: #{$size};
+    }
+  }
+}
+
+
+@if vars.$generate-responsive-classes {
+  @each $breakpoint, $bp-size in vars.$breakpoints {
+    @media (min-width: $bp-size) {
+      @for $i from 1 through vars.$grid-columns {
+        .col-#{$breakpoint}-#{$i} {
+          width: math.div(100%, vars.$grid-columns) * $i;
+        }
       }
     }
   }
