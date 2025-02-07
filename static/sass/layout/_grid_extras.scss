@@ -1,21 +1,13 @@
+@use 'sass:math';
 @use '../base/variables' as vars;
 
-$gutter-sizes: (
-    0: 0px,
-    1: 8px,
-    2: 16px,
-    3: 32px,
-    4: 64px,
-    5: 128px
-);
-
-
-@each $num, $size in $gutter-sizes {
-    .gx-#{$num} {
-        --gutter-x: #{$size};
+@each $breakpoint, $bp-size in vars.$breakpoints {
+  @media (min-width: $bp-size) {
+    @for $i from 1 through vars.$grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        width: math.div(100%, vars.$grid-columns) * $i;
+        padding-inline: calc(var(--gutter-x) / 2);
+      }
     }
-
-    .gy-#{$num} {
-        --gutter-y: #{$size};
-    }
+  }
 }
